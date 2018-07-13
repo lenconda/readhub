@@ -50,7 +50,7 @@ export default class Index extends Component {
           renderSelectedIcon={() => <Icon color={'#4867ad'} size={22} name={'newspaper-o'}></Icon>}
           onPress={() => {
             this.setState({ selectedTab: 'News' })
-            this.renderTab('News')
+            this.renderTab('资讯')
           }}
         >
           <News />
@@ -64,7 +64,7 @@ export default class Index extends Component {
           renderSelectedIcon={() => <Icon color={'#4867ad'} size={22} name={'group'}></Icon>}
           onPress={() => {
             this.setState({ selectedTab: 'Careers' })
-            this.renderTab('Careers')
+            this.renderTab('招聘')
           }}
         >
           <Careers />

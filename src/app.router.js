@@ -15,7 +15,7 @@ export default class AppRouter extends Component {
         titleStyle={styles.navigationTitle}
       >
         <Stack key={'root'}>
-          <Scene key={'index'} component={IndexContainer} title={'Topics'}></Scene>
+          <Scene key={'index'} component={IndexContainer} title={'话题'}></Scene>
           <Scene key={'login'} component={Login} title={'Login'}></Scene>
           <Scene key={'register'} component={Register} title={'Register'}></Scene>
         </Stack>
