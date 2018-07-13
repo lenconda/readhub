@@ -20,9 +20,11 @@
   },
   "dependencies": {
     "antd-mobile": "^1.6.6",
+    "axios": "^0.18.0",
     "react": "^16.3.1",
     "react-dom": "^16.4.1",
     "react-native": "^0.55.4",
+    "react-native-refresh-list-view": "^1.0.8",
     "react-native-router-flux": "^4.0.0-beta.31",
     "react-native-tab-navigator": "^0.3.4",
     "react-native-ui-lib": "^3.3.143",
