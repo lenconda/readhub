@@ -20,23 +20,6 @@ export default class Topics extends Component {
     this.onHeaderRefresh()
   }
 
-  // fetchData = (type, size, lastCursor) => {
-  //   let cursor = lastCursor || ''
-  //   return axios.create(`/${type}?size=${size}&lastCuror=${cursor}`)
-  // }
-
-  // onEndReached = () => {
-  //   if (this.state.isLoading) return
-  //   this.setState({ isLoading: true })
-  //   api.get(`/topic?size=10&lastCursor=${this.state.lastCursor}`).then(res => {
-  //     let data = { ...this.state.dataSource, ...res.data.data }
-  //     this.setState({
-  //       dataSource: this.state.dataSource.cloneWithRows(data),
-  //       isLoading: false,
-  //     })
-  //   })
-  // }
-
   onHeaderRefresh = () => {
     this.setState({refreshState: RefreshState.HeaderRefreshing})
     console.log('Head refreshing...')
@@ -57,51 +40,19 @@ export default class Topics extends Component {
       if (res.data.data.length < 1) return
       console.log(res)
       this.setState({
-        topicItems: this.state.topicItems.concat(res.data.data),
+        topicItems: this.state.topicItems.concat(res.data.data.reverse()),
         lastCursor: res.data.data[res.data.data.length - 1].order,
         refreshState: RefreshState.Idle,
       })
     })
   }
 
-  renderItem = () => {
-    // let topicItemArray = []
-    // this.state.topicItems.map((topicItem, index) => {
-    //   topicItemArray.push(
-    //     <TouchableOpacity activeOpacity={0.6}>
-    //       <Card style={styles.topicCard}>
-    //         <Card.Header title={topicItem.title} />
-    //         <Card.Body>
-    //           <Text>{topicItem.summary}</Text>
-    //         </Card.Body>
-    //       </Card>
-    //     </TouchableOpacity>
-    //   )
-    // })
-    // return topicItemArray
-
-    // let index = this.state.topicItems.length - 1
-    // return <TouchableOpacity activeOpacity={0.6}>
-    //   <Card sindex = this.state.topicItems.length - 1tyle={styles.topicCard}>
-    //     <Card.Header title={this.state.topicItems[index--].title} />
-    //     <Card.Body>
-    //       <Text>{this.state.topicItems[index--].summary}</Text>
-    //     </Card.Body>
-    //   </Card>
-    // </TouchableOpacity>
-  }
-
-
-
-  topicItem = () => {
-    // if (index < 0)
-    // const item = this.state.topicItems[index--]
-    let index = this.state.topicItems.length - 1
+  topicItem = ({ item }) => {
     return <TouchableOpacity activeOpacity={0.6}>
       <Card full style={styles.topicCard}>
-        <Card.Header title={this.state.topicItems[index--].title} />
+        <Card.Header title={item.title} />
         <Card.Body>
-          <Text>{this.state.topicItems[index--].summary}</Text>
+          <Text>{item.summary}</Text>
         </Card.Body>
       </Card>
     </TouchableOpacity>

@@ -32,8 +32,8 @@ export default class Index extends Component {
           title={'话题'}
           titleStyle={styles.tabText}
           selectTitleStyle={styles.selectedTitleStyle}
-          renderIcon={() => <Icon color={'#999'} size={22} name={'comments-o'}></Icon>}
-          renderSelectedIcon={() => <Icon color={'#4867ad'} size={22} name={'comments-o'}></Icon>}
+          renderIcon={() => <Icon color={'#999'} size={22} name={'comments'}></Icon>}
+          renderSelectedIcon={() => <Icon color={'#4867ad'} size={22} name={'comments'}></Icon>}
           onPress={() => {
             this.setState({ selectedTab: 'Topics' })
             this.renderTab('话题')

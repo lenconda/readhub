@@ -4837,6 +4837,10 @@ react-native-scrollable-tab-view@^0.7.2:
     react-static-container "^1.0.1"
     react-timer-mixin "^0.13.3"
 
+react-native-swRefresh@^1.2.3:
+  version "1.2.3"
+  resolved "http://registry.npm.taobao.org/react-native-swRefresh/download/react-native-swRefresh-1.2.3.tgz#84fa925cc13322812251c023f331dbfd5c03095a"
+
 react-native-swipeout@~2.1.1:
   version "2.1.5"
   resolved "http://registry.npm.taobao.org/react-native-swipeout/download/react-native-swipeout-2.1.5.tgz#eb3a7ac3cf9418441b84a3a6fa7aa64b701598a4"
