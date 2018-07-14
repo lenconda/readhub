@@ -4,9 +4,9 @@ import TabNavigator from 'react-native-tab-navigator'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { Actions } from 'react-native-router-flux'
 
-import Topics from './Topics'
+import TopicsJsx from './Topics'
 import News from './News'
-import Careers from './Careers'
+import CareersJsx from './Careers'
 
 export default class Index extends Component {
 
@@ -39,7 +39,7 @@ export default class Index extends Component {
             this.renderTab('话题')
           }}
         >
-          <Topics />
+          <TopicsJsx />
         </TabNavigator.Item>
         <TabNavigator.Item
           selected={this.state.selectedTab === 'News'}
@@ -67,7 +67,7 @@ export default class Index extends Component {
             this.renderTab('招聘')
           }}
         >
-          <Careers />
+          <CareersJsx />
         </TabNavigator.Item>
       </TabNavigator>
     )

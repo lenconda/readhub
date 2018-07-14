@@ -91,28 +91,29 @@ export default class Topics extends Component {
     // </TouchableOpacity>
   }
 
-  render() {
 
+
+  topicItem = () => {
+    // if (index < 0)
+    // const item = this.state.topicItems[index--]
     let index = this.state.topicItems.length - 1
+    return <TouchableOpacity activeOpacity={0.6}>
+      <Card full style={styles.topicCard}>
+        <Card.Header title={this.state.topicItems[index--].title} />
+        <Card.Body>
+          <Text>{this.state.topicItems[index--].summary}</Text>
+        </Card.Body>
+      </Card>
+    </TouchableOpacity>
+  }
 
-    const topicItem = () => {
-      if (index < 0)
-      const item = this.state.topicItems[index--]
-      return <TouchableOpacity activeOpacity={0.6}>
-        <Card full style={styles.topicCard}>
-          <Card.Header title={item.title} />
-          <Card.Body>
-            <Text>{item.summary}</Text>
-          </Card.Body>
-        </Card>
-      </TouchableOpacity>
-    }
+  render() {
 
     return (
       <View style={styles.container}>
         <RefreshListView
           data={this.state.topicItems}
-          renderItem={topicItem}
+          renderItem={this.topicItem}
           refreshState={this.state.refreshState}
           keyExtractor={(item, index) => index.toString()}
           onHeaderRefresh={this.onHeaderRefresh}
