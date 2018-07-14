@@ -5,6 +5,7 @@ import { Card, Toast } from 'antd-mobile'
 import { Icon } from 'react-native-vector-icons/FontAwesome'
 
 import api from '../api'
+import utils from '../utils'
 
 export default class Topics extends Component {
 
@@ -67,6 +68,7 @@ export default class Topics extends Component {
         <Card.Header title={item.title} />
         <Card.Body>
           <View style={styles.topicTextContainer}>
+            <Text style={styles.topicPublishedDate}>{utils.getDateDiff(item.publishDate)}</Text>
             <Text style={styles.topicText}>{item.summary}</Text>
           </View>
         </Card.Body>
@@ -113,6 +115,12 @@ const styles = StyleSheet.create({
 
   topicText: {
     color: '#797979'
-  }
+  },
+
+  topicPublishedDate: {
+    color: '#999',
+    fontSize: 12,
+    marginBottom: 10,
+  },
 
 })
