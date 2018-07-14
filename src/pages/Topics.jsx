@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { ScrollView, Text, StyleSheet, View, TouchableOpacity } from 'react-native'
-import RefreshListView, { RefreshState } from 'react-native-refresh-list-view'
+import RefreshListView, { RefreshState } from '../components/RefreshListView'
 import { Card } from 'antd-mobile'
 import api from '../api'
 
@@ -17,17 +17,24 @@ export default class Topics extends Component {
   }
 
   componentDidMount() {
-    this.onHeaderRefresh()
+    // this.onHeaderRefresh()
+    console.log('Initializing...')
+    api.get(`/topic?pageSize=10`).then(res => {
+      this.setState({
+        topicItems: res.data.data.reverse(),
+        lastCursor: res.data.data[0].order,
+        refreshState: RefreshState.Idle,
+      })
+    })
   }
 
   onHeaderRefresh = () => {
     this.setState({refreshState: RefreshState.HeaderRefreshing})
     console.log('Head refreshing...')
     api.get(`/topic?pageSize=10`).then(res => {
-      console.log(res)
       this.setState({
         topicItems: res.data.data.reverse(),
-        lastCursor: res.data.data[res.data.data.length - 1].order,
+        lastCursor: res.data.data[0].order,
         refreshState: RefreshState.Idle,
       })
     })
@@ -38,10 +45,11 @@ export default class Topics extends Component {
     console.log('Foot refreshing...')
     api.get(`/topic?pageSize=10&lastCursor=${this.state.lastCursor}`).then(res => {
       if (res.data.data.length < 1) return
-      console.log(res)
+      let newList = res.data.data.reverse()
       this.setState({
-        topicItems: this.state.topicItems.concat(res.data.data.reverse()),
-        lastCursor: res.data.data[res.data.data.length - 1].order,
+        // topicItems: this.state.topicItems.concat(res.data.data.reverse()),
+        topicItems: [...this.state.topicItems, ...newList],
+        lastCursor: res.data.data[0].order,
         refreshState: RefreshState.Idle,
       })
     })
@@ -67,8 +75,11 @@ export default class Topics extends Component {
           renderItem={this.topicItem}
           refreshState={this.state.refreshState}
           keyExtractor={(item, index) => index.toString()}
-          onHeaderRefresh={this.onHeaderRefresh}
-          onFooterRefresh={this.onFooterRefresh}
+          onHeaderRefresh={() => {this.onHeaderRefresh()}}
+          onFooterRefresh={() => {
+            if (this.state.RefreshState === RefreshState.FooterRefreshing) return
+            this.onFooterRefresh()}
+          }
         />
       </View>
     )

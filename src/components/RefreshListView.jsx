@@ -19,7 +19,7 @@ export const RefreshState = {
 }
 
 const DEBUG = false
-const log = text => {DEBUG && console.log(text)}
+const log = (text) => {DEBUG && console.log(text)}
 
 class RefreshListView extends PureComponent {
 
@@ -47,7 +47,7 @@ class RefreshListView extends PureComponent {
     }
   }
 
-  onEndReached = ({info}) => {
+  onEndReached = (info) => {
     log('[RefreshListView]  onEndReached   ' + info.distanceFromEnd)
 
     if (this.shouldStartFooterRefreshing()) {
@@ -90,7 +90,7 @@ class RefreshListView extends PureComponent {
         onRefresh={this.onHeaderRefresh}
         refreshing={this.props.refreshState == RefreshState.HeaderRefreshing}
         ListFooterComponent={this.renderFooter}
-        onEndReachedThreshold={0.1}
+        onEndReachedThreshold={-0.1}
 
         renderItem={renderItem}
 
