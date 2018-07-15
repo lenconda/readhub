@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import IndexContainer from './container/IndexContainer'
 import TopicContainer from './container/TopicContainer'
+import NewsContainer from './container/NewsContainer'
 
 export default class AppRouter extends Component {
   render() {
@@ -20,6 +21,7 @@ export default class AppRouter extends Component {
           <Scene key={'login'} component={Login} title={'Login'}></Scene>
           <Scene key={'register'} component={Register} title={'Register'}></Scene>
           <Scene key={'topicContainer'} component={TopicContainer} title={'话题详情'}></Scene>
+          <Scene key={'newsContainer'} component={NewsContainer} title={'新闻详情'}></Scene>
         </Stack>
       </Router>
     )

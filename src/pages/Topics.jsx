@@ -89,7 +89,7 @@ class Topics extends Component {
       onPress={() => {
         api.get(`/topic/${item.id}`).then(res => {
           this.props.changeTopic(res.data)
-          Actions.push('topicContainer', { id: item.id })
+          Actions.push('topicContainer')
         })
       }}>
       <Card full style={styles.topicCard}>

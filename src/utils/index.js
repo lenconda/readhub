@@ -20,7 +20,24 @@ const utils = {
     else if (minC >= 1) result = '' + parseInt(minC) + '分钟前'
     else result = '刚刚'
     return result
+  },
+
+  getTimelineDate: dateTimeStr => {
+    let stdTime = new Date(Date.parse(dateTimeStr)),
+      year = stdTime.getFullYear(),
+      month = parseInt(stdTime.getMonth()) + 1,
+      date = stdTime.getDate()
+    let currentTime = new Date()
+    let currentYear = currentTime.getFullYear()
+
+    return {
+      year: parseInt(year),
+      month: parseInt(month),
+      date: parseInt(date),
+      curYear: parseInt(currentYear)
+    }
   }
+
 }
 
 export default utils
