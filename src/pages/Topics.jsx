@@ -87,9 +87,13 @@ class Topics extends Component {
     return <TouchableOpacity
       activeOpacity={0.6}
       onPress={() => {
+        Toast.loading('加载中...', 0)
         api.get(`/topic/${item.id}`).then(res => {
           this.props.changeTopic(res.data)
           Actions.push('topicContainer')
+          Toast.hide()
+        }).catch(error => {
+          Toast.fail('加载失败', 1)
         })
       }}>
       <Card full style={styles.topicCard}>
