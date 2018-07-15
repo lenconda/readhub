@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { View, Text, Button, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
 import { Actions } from 'react-native-router-flux'
-import { connect } from 'react-redux'
-import { login } from '../redux/actions/users'
+// import { connect } from 'react-redux'
+// import { login } from '../redux/actions/users'
 
 
 class Login extends Component {
@@ -45,7 +45,7 @@ class Login extends Component {
       name: this.state.loginForm.username,
       password: this.state.loginForm.password,
     }
-    this.props.dispatch(login(options))
+    // this.props.dispatch(login(options))
   }
 
   render() {
@@ -87,15 +87,15 @@ class Login extends Component {
   }
 }
 
-function select(store) {
-  return {
-    isLoggedIn: store.userStore.isLoggedIn,
-    user: store.userStore.user,
-    status: store.userStore.status,
-  }
-}
+// function select(store) {
+//   return {
+//     isLoggedIn: store.userStore.isLoggedIn,
+//     user: store.userStore.user,
+//     status: store.userStore.status,
+//   }
+// }
 
-export default connect(select)(Login)
+export default Login
 
 const styles = StyleSheet.create({
 

@@ -3,11 +3,29 @@ import { Text, StyleSheet, View, TouchableOpacity } from 'react-native'
 import RefreshListView, { RefreshState } from '../components/RefreshListView'
 import { Card, Toast } from 'antd-mobile'
 import { Icon } from 'react-native-vector-icons/FontAwesome'
+import { Actions } from 'react-native-router-flux'
+import { connect } from 'react-redux'
 
+import { change_topic } from '../redux/actions'
 import api from '../api'
 import utils from '../utils'
 
-export default class Topics extends Component {
+const mapStateToProps = state => {
+  return {
+    topic: state.topic
+  }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    changeTopic: (topic) => {
+      console.log('dispatching topic to store...')
+      dispatch(change_topic(topic))
+    }
+  }
+}
+
+class Topics extends Component {
 
   constructor(props) {
     super(props)
@@ -63,7 +81,17 @@ export default class Topics extends Component {
   }
 
   topicItem = ({ item }) => {
-    return <TouchableOpacity activeOpacity={0.6}>
+
+    // const {changeTopic} = this.props
+
+    return <TouchableOpacity
+      activeOpacity={0.6}
+      onPress={() => {
+        api.get(`/topic/${item.id}`).then(res => {
+          this.props.changeTopic(res.data)
+          Actions.push('topicContainer', { id: item.id })
+        })
+      }}>
       <Card full style={styles.topicCard}>
         <Card.Header title={item.title} />
         <Card.Body>
@@ -124,3 +152,5 @@ const styles = StyleSheet.create({
   },
 
 })
+
+export default connect(mapStateToProps, mapDispatchToProps)(Topics)

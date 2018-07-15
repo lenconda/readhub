@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-import configureStore from './redux/store'
-let store = configureStore()
-
+import reducers from './redux/reducers'
 import AppRouter from './app.router'
+
+const store = createStore(reducers)
 
 export default class AppContainer extends React.Component {
   render() {
