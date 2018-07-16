@@ -11,7 +11,9 @@
 
 import { combineReducers } from 'redux'
 import topics from './topics'
+import careers from './careers'
 
 export default combineReducers({
-  topics: topics
+  topics: topics,
+  careers: careers
 })

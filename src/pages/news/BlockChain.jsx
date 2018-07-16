@@ -61,11 +61,14 @@ export default class BlockChain extends Component {
     >
       <Card full style={styles.techNewsCard}>
         <Card.Header title={item.title} />
-        <Card.Body>
-          <View style={styles.techNewsTextContainer}>
-            <Text style={styles.techNewsText}>{item.summary}</Text>
-          </View>
-        </Card.Body>
+        {
+          item.summary === '' ? (<View></View>) :
+            (<Card.Body>
+              <View style={styles.techNewsTextContainer}>
+                <Text style={styles.techNewsText}>{item.summary}</Text>
+              </View>
+            </Card.Body>)
+        }
         <Card.Footer content={`${item.siteName}${item.authorName ? ` / ${item.authorName}` : ''}  ${utils.getDateDiff(item.publishDate)}`}></Card.Footer>
       </Card>
     </TouchableOpacity>

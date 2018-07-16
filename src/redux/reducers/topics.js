@@ -1,4 +1,4 @@
-const topics = (state = {message: 'Fuck redux'}, action) => {
+const topics = (state = {}, action) => {
   switch (action.type) {
     case 'CHANGE_TOPIC':
       return {
