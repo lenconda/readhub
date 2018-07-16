@@ -18,6 +18,12 @@ export default class NewsContainer extends Component {
           onError={() => {
             Toast.offline('网页加载失败', 1)
           }}
+          onLoadStart={() => {
+            Toast.loading('加载中...')
+          }}
+          onLoad={() => {
+            Toast.hide()
+          }}
         />
       </View>
     )
