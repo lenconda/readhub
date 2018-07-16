@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, TouchableOpacity } from 'react-native'
+import { Text, StyleSheet, View } from 'react-native'
 import RefreshListView, { RefreshState } from '../components/RefreshListView'
-import { Card, Toast } from 'antd-mobile'
+import { Card, Toast, List } from 'antd-mobile'
 import { Icon } from 'react-native-vector-icons/FontAwesome'
 import { Actions } from 'react-native-router-flux'
 import { connect } from 'react-redux'
@@ -81,30 +81,28 @@ class Topics extends Component {
 
   topicItem = ({ item }) => {
 
-    // const {changeTopic} = this.props
+    return <List style={styles.topicCard}>
+      <List.Item
+        multipleLine={true}
+        wrap={true}
+        onClick = {() => {
+          Toast.loading('加载中...', 0)
+          api.get(`/topic/${item.id}`).then(res => {
+            this.props.changeTopic(res.data)
+            Actions.push('topicContainer')
+            Toast.hide()
+          }).catch(error => {Toast.fail('加载失败', 1)})
+        }}
+        style={{ paddingTop: 10 }}
+      >
+        {item.title}
+        <List.Item.Brief style={{ marginTop: 10, marginBottom: 10 }}>{item.summary}</List.Item.Brief>
+        <List.Item.Brief>
+          <Text style={{ color: '#4867ad' }}>{utils.getDateDiff(item.publishDate)}</Text>
+        </List.Item.Brief>
+      </List.Item>
+    </List>
 
-    return <TouchableOpacity
-      activeOpacity={0.6}
-      onPress={() => {
-        Toast.loading('加载中...', 0)
-        api.get(`/topic/${item.id}`).then(res => {
-          this.props.changeTopic(res.data)
-          Actions.push('topicContainer')
-          Toast.hide()
-        }).catch(error => {
-          Toast.fail('加载失败', 1)
-        })
-      }}>
-      <Card full style={styles.topicCard}>
-        <Card.Header title={item.title} />
-        <Card.Body>
-          <View style={styles.topicTextContainer}>
-            <Text style={styles.topicPublishedDate}>{utils.getDateDiff(item.publishDate)}</Text>
-            <Text style={styles.topicText}>{item.summary}</Text>
-          </View>
-        </Card.Body>
-      </Card>
-    </TouchableOpacity>
   }
 
   render() {
@@ -124,7 +122,9 @@ class Topics extends Component {
         />
       </View>
     )
+
   }
+
 }
 
 const styles = StyleSheet.create({
@@ -136,21 +136,6 @@ const styles = StyleSheet.create({
 
   topicCard: {
     marginTop: 10,
-    marginBottom: 10,
-  },
-
-  topicTextContainer: {
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
-
-  topicText: {
-    color: '#797979'
-  },
-
-  topicPublishedDate: {
-    color: '#999',
-    fontSize: 12,
     marginBottom: 10,
   },
 
