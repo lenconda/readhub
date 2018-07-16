@@ -36,7 +36,10 @@ const utils = {
       date: parseInt(date),
       curYear: parseInt(currentYear)
     }
-  }
+  },
+
+  getTimeStamp: () => Date.parse(new Date())
+
 
 }
 
