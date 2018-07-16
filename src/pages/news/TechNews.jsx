@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import RefreshListView, { RefreshState } from '../../components/RefreshListView'
-import { Card, Toast } from 'antd-mobile'
+import { Toast, List } from 'antd-mobile'
 import { Actions } from 'react-native-router-flux'
 
 import api from '../../api'
@@ -53,22 +53,22 @@ export default class TechNews extends Component {
 
   newsItem = ({ item }) => {
 
-    return <TouchableOpacity
-      activeOpacity={0.6}
-      onPress={() => {
-        Actions.push('newsContainer', {url: item.url})
-      }}
-    >
-      <Card full style={styles.techNewsCard}>
-        <Card.Header title={item.title} />
-        <Card.Body>
-          <View style={styles.techNewsTextContainer}>
-            <Text style={styles.techNewsText}>{item.summary}</Text>
-          </View>
-        </Card.Body>
-        <Card.Footer content={`${item.siteName}${item.authorName ? ` / ${item.authorName}` : ''}  ${utils.getDateDiff(item.publishDate)}`}></Card.Footer>
-      </Card>
-    </TouchableOpacity>
+    return <List style={{ marginTop: 10, marginBottom: 10 }}>
+      <List.Item
+        multipleLine={true}
+        wrap={true}
+        style={{ paddingTop: 10 }}
+        onClick={() => {
+          Actions.push('newsContainer', {url: item.url})
+        }}
+      >
+        {item.title}
+        {item.summary === '' ? <View></View> :
+          <List.Item.Brief style={{ marginTop: 10, marginBottom: 10 }}>{item.summary}</List.Item.Brief>
+        }
+        <List.Item.Brief style={{ color: '#4867ad' }}>{`${item.siteName}${item.authorName ? ` / ${item.authorName}` : ''}  ${utils.getDateDiff(item.publishDate)}`}</List.Item.Brief>
+      </List.Item>
+    </List>
 
   }
 
@@ -99,20 +99,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f5f9',
-  },
-
-  techNewsCard: {
-    marginTop: 10,
-    marginBottom: 10,
-  },
-
-  techNewsTextContainer: {
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
-
-  techNewsText: {
-    color: '#797979',
   },
 
 })
