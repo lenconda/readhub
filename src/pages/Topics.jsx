@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View } from 'react-native'
 import RefreshListView, { RefreshState } from '../components/RefreshListView'
-import { Card, Toast, List } from 'antd-mobile'
+import { Toast, List } from 'antd-mobile'
 import { Icon } from 'react-native-vector-icons/FontAwesome'
 import { Actions } from 'react-native-router-flux'
 import { connect } from 'react-redux'
