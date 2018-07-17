@@ -24,7 +24,7 @@ export default class AppRouter extends Component {
         <Scene key={'root'}>
           <Scene key={'index'} component={IndexContainer} title={'话题'}></Scene>
           <Scene key={'topicContainer'} component={TopicContainer} title={'话题详情'}></Scene>
-          <Scene key={'newsContainer'} component={WebContainer} title={'加载中...'}></Scene>
+          <Scene key={'newsContainer'} component={WebContainer} title={'浏览网页'}></Scene>
           <Scene key={'careerContainer'} component={CareerContainer} title={'招聘详情'}></Scene>
         </Scene>
       </Router>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, WebView } from 'react-native'
 import { Toast } from 'antd-mobile'
 import { Actions } from 'react-native-router-flux'
+import RNADWebview from 'react-native-advanced-webview'
 
 export default class WebContainer extends Component {
 
@@ -29,14 +30,14 @@ export default class WebContainer extends Component {
       window.postMessage=patchedPostMessage;
     };
 
-    const patchPostMessageJsCode = '(' + String(patchPostMessageFunction) + ')();\nwindow.postMessage(document.title,\'*\');'
+    const patchPostMessageJsCode = '(' + String(patchPostMessageFunction) + ')();\nwindow.postMessage(document.title);'
 
     return (
       <View style={{ flex: 1 }}>
-        <WebView
+        <RNADWebview
           ref={(webview) => this.webview = webview}
           source={{ uri: this.props.url }}
-          injectedJavaScript={patchPostMessageJsCode}
+          initialJavaScript={patchPostMessageJsCode}
           onError={() => {Toast.offline('网页加载失败', 1)}}
           onLoadStart={() => {Toast.loading('加载中...')}}
           onLoad={() => {Toast.hide()}}
@@ -44,6 +45,7 @@ export default class WebContainer extends Component {
             console.log('get message')
             Actions.refresh({title: e.nativeEvent.data})
           }}
+          allowFileAccessFromFileURLs={true}
         />
       </View>
     )

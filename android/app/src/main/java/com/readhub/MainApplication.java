@@ -3,6 +3,7 @@ package com.readhub;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import im.shimo.react.webview.AdvancedWebViewPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
@@ -25,6 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new AdvancedWebViewPackage(),
             new SplashScreenReactPackage(),
             new VectorIconsPackage()
       );

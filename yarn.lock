@@ -4762,6 +4762,10 @@ react-lifecycles-compat@^1.0.2:
   version "1.1.4"
   resolved "http://registry.npm.taobao.org/react-lifecycles-compat/download/react-lifecycles-compat-1.1.4.tgz#fc005c72849b7ed364de20a0f64ff58ebdc2009a"
 
+react-native-advanced-webview@^0.63.0:
+  version "0.63.0"
+  resolved "http://registry.npm.taobao.org/react-native-advanced-webview/download/react-native-advanced-webview-0.63.0.tgz#4bd405166a2085d248d3dc2991404e99a2969586"
+
 react-native-camera-roll-picker@~1.2.0:
   version "1.2.3"
   resolved "http://registry.npm.taobao.org/react-native-camera-roll-picker/download/react-native-camera-roll-picker-1.2.3.tgz#b117fd3a2b9012dcccee1261a9bc427226b8d6d2"
