@@ -16,6 +16,13 @@ class CareerContainer extends Component {
     super(props)
   }
 
+  componentWillMount() {
+    Actions.refresh({
+      rightTitle: '',
+      onRight: () => null
+    })
+  }
+
   render() {
 
     let job = this.props.jobDetail

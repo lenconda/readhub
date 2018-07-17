@@ -28,6 +28,13 @@ class TopicContainer extends Component {
     super(props)
   }
 
+  componentWillMount() {
+    Actions.refresh({
+      rightTitle: '',
+      onRight: () => null
+    })
+  }
+
   render() {
 
     let detail = this.props.topicDetail.topics

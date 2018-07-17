@@ -9,6 +9,13 @@ export default class WebContainer extends Component {
     super(props)
   }
 
+  componentWillMount() {
+    Actions.refresh({
+      rightTitle: '',
+      onRight: () => null
+    })
+  }
+
   render() {
 
     const patchPostMessageFunction = function() {
