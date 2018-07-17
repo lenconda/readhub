@@ -72,8 +72,10 @@ class TopicContainer extends Component {
                       Actions.refresh()
                     })
                   }}>
-                    {topic.title}
-                    <List.Item.Brief>{`${dateObj.month}-${dateObj.date}${dateObj.year === dateObj.curYear ? '' : `, ${dateObj.year}`}`}</List.Item.Brief>
+                    <Text>{topic.title}</Text>
+                    <List.Item.Brief>
+                      <Text style={{ fontSize: 12 }}>{`${dateObj.month}-${dateObj.date}${dateObj.year === dateObj.curYear ? '' : `, ${dateObj.year}`}`}</Text>
+                    </List.Item.Brief>
                   </List.Item>
                 )
               })
