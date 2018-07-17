@@ -22,7 +22,7 @@ export default class WebContainer extends Component {
       window.postMessage = patchedPostMessage
     }
 
-    const patchPostMessageJsCode = '(' + String(patchPostMessageFunction) + ')();window.postMessage(document.title)'
+    const patchPostMessageJsCode = '(' + String(patchPostMessageFunction) + ')();window.postMessage(document.title, "*")'
 
     return (
       <View style={{ flex: 1 }}>
@@ -34,6 +34,7 @@ export default class WebContainer extends Component {
           onLoadStart={() => {Toast.loading('加载中...')}}
           onLoad={() => {Toast.hide()}}
           onMessage={e => {
+            console.log('get message')
             Actions.refresh({title: e.nativeEvent.data})
           }}
         />

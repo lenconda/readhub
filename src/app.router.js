@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Actions, Scene, Router, Stack } from 'react-native-router-flux'
-import {StyleSheet} from "react-native";
+import { StyleSheet } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 import IndexContainer from './container/IndexContainer'
 import TopicContainer from './container/TopicContainer'
@@ -14,14 +15,18 @@ export default class AppRouter extends Component {
         sceneStyle={styles.sceneStyle}
         navigationBarStyle={styles.navigationBar}
         titleStyle={styles.navigationTitle}
-        leftButtonIconStyle={styles.leftButton}
+        backButtonTintColor={'#4867ad'}
+        // backButtonTextStyle={styles.backButton}
+        // renderBackButton={() => <Icon name={'chevron-left'} color={'#4867ad'} size={16} />}
+        // onBack={Actions.pop()}
+        leftButtonStyle={styles.backButton}
       >
-        <Stack key={'root'}>
+        <Scene key={'root'}>
           <Scene key={'index'} component={IndexContainer} title={'话题'}></Scene>
           <Scene key={'topicContainer'} component={TopicContainer} title={'话题详情'}></Scene>
           <Scene key={'newsContainer'} component={WebContainer} title={'加载中...'}></Scene>
           <Scene key={'careerContainer'} component={CareerContainer} title={'招聘详情'}></Scene>
-        </Stack>
+        </Scene>
       </Router>
     )
   }
@@ -41,13 +46,16 @@ const styles = StyleSheet.create({
   },
 
   navigationTitle: {
+    flex: 1,
     fontSize: 16,
     color: '#333333',
-    // alignSelf: 'center',
+    alignSelf: 'center',
+    textAlign: 'center',
   },
 
-  leftButton: {
-    tintColor: '#4867ad',
+  backButton: {
+    position: 'absolute',
+    left: 1,
   },
 
 })
