@@ -14,6 +14,7 @@ export default class AppRouter extends Component {
         sceneStyle={styles.sceneStyle}
         navigationBarStyle={styles.navigationBar}
         titleStyle={styles.navigationTitle}
+        leftButtonIconStyle={styles.leftButton}
       >
         <Stack key={'root'}>
           <Scene key={'index'} component={IndexContainer} title={'话题'}></Scene>
@@ -27,6 +28,7 @@ export default class AppRouter extends Component {
 }
 
 const styles = StyleSheet.create({
+
   sceneStyle: {
     backgroundColor: '#fff'
   },
@@ -34,14 +36,18 @@ const styles = StyleSheet.create({
   navigationBar: {
     height: 45,
     backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0'
+    borderBottomWidth: 0,
+    shadowColor: 'transparent',
   },
 
   navigationTitle: {
-    fontSize: 17,
+    fontSize: 16,
     color: '#333333',
-    alignSelf: 'center',
-    fontWeight: 'bold'
+    // alignSelf: 'center',
   },
+
+  leftButton: {
+    tintColor: '#4867ad',
+  },
+
 })

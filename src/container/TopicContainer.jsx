@@ -43,9 +43,9 @@ class TopicContainer extends Component {
             !detail.newsArray ? '' :
             detail.newsArray.map((news, index) => {
               return (
-                <TouchableOpacity style={styles.urlLink} activeOpacity={0.6} key={index} onPress={() => [
+                <TouchableOpacity style={styles.urlLink} activeOpacity={0.6} key={index} onPress={() => {
                   Actions.push('newsContainer', {url: news.mobileUrl})
-                ]}>
+                }}>
                   <View>
                     <Text style={{ fontSize: 14, color: '#4867ad' }}>
                       <Icon name={'circle-o'} color={'#a3a3a3'} />&nbsp;

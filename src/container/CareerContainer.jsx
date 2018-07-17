@@ -49,11 +49,9 @@ class CareerContainer extends Component {
                     <Text>{jobInfo.company}·</Text>
                     <Text style={{ fontWeight: '700' }}>{jobInfo.title}</Text>
                   </Text>
-                  <Text>
-                    <List.Item.Brief style={{ color: '#d65949' }}>{utils.convertJobSalary(jobInfo.salaryLower, jobInfo.salaryUpper)}</List.Item.Brief>
-                    &nbsp;
-                    <List.Item.Brief>{utils.convertJobExperience(jobInfo.experienceLower, jobInfo.experienceUpper)}</List.Item.Brief>
-                  </Text>
+                  <List.Item.Brief style={{ color: '#d65949' }}>{utils.convertJobSalary(jobInfo.salaryLower, jobInfo.salaryUpper)}</List.Item.Brief>
+                  &nbsp;
+                  <List.Item.Brief>{utils.convertJobExperience(jobInfo.experienceLower, jobInfo.experienceUpper)}</List.Item.Brief>
                 </List.Item>
               })
             }

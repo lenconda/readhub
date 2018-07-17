@@ -90,7 +90,7 @@ class RefreshListView extends PureComponent {
         onRefresh={this.onHeaderRefresh}
         refreshing={this.props.refreshState == RefreshState.HeaderRefreshing}
         ListFooterComponent={this.renderFooter}
-        onEndReachedThreshold={-0.1}
+        onEndReachedThreshold={0.1}
 
         renderItem={renderItem}
 
