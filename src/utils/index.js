@@ -44,6 +44,7 @@ const utils = {
     if (lower === -1 && upper === -1) return '无'
     else if (lower === -1 && upper !== -1) return `${upper}年以下经验`
     else if (lower !== -1 && upper === -1) return `${lower}年以上经验`
+    else if (lower === upper) return `${upper}年经验`
     else return `${lower}-${upper}年经验`
   },
 
@@ -51,6 +52,7 @@ const utils = {
     if (lower === -1 && upper === -1) return '薪资面议'
     else if (lower === -1 && upper !== -1) return `${upper}k以下`
     else if (lower !== -1 && upper === -1) return `${lower}k以上`
+    else if (lower === upper) return `${upper}k`
     else return `${lower}-${upper}k`
   },
 
