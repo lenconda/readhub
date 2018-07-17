@@ -1220,10 +1220,6 @@ babel-plugin-transform-function-bind@^6.5.2:
     babel-plugin-syntax-function-bind "^6.8.0"
     babel-runtime "^6.22.0"
 
-babel-plugin-transform-inline-environment-variables@^0.0.2:
-  version "0.0.2"
-  resolved "http://registry.npm.taobao.org/babel-plugin-transform-inline-environment-variables/download/babel-plugin-transform-inline-environment-variables-0.0.2.tgz#1372475c6c87f3c4ce6046587730ee041bc784b9"
-
 babel-plugin-transform-object-assign@^6.5.0:
   version "6.22.0"
   resolved "http://registry.npm.taobao.org/babel-plugin-transform-object-assign/download/babel-plugin-transform-object-assign-6.22.0.tgz#f99d2f66f1a0b0d498e346c5359684740caa20ba"
@@ -2615,7 +2611,7 @@ has@^1.0.1:
   dependencies:
     function-bind "^1.1.1"
 
-hoist-non-react-statics@^2.2.0, hoist-non-react-statics@^2.3.0, hoist-non-react-statics@^2.3.1, hoist-non-react-statics@^2.5.0:
+hoist-non-react-statics@^2.2.0, hoist-non-react-statics@^2.3.1, hoist-non-react-statics@^2.5.0:
   version "2.5.5"
   resolved "http://registry.npm.taobao.org/hoist-non-react-statics/download/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
 
@@ -4508,10 +4504,6 @@ qs@~6.5.1:
   version "6.5.2"
   resolved "http://registry.npm.taobao.org/qs/download/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
 
-querystringify@^2.0.0:
-  version "2.0.0"
-  resolved "http://registry.npm.taobao.org/querystringify/download/querystringify-2.0.0.tgz#fa3ed6e68eb15159457c89b37bc6472833195755"
-
 raf@^3.1.0, raf@^3.3.0, raf@^3.3.2:
   version "3.4.0"
   resolved "http://registry.npm.taobao.org/raf/download/raf-3.4.0.tgz#a28876881b4bc2ca9117d4138163ddb80f781575"
@@ -4760,18 +4752,6 @@ react-lifecycles-compat@^1.0.2:
   version "1.1.4"
   resolved "http://registry.npm.taobao.org/react-lifecycles-compat/download/react-lifecycles-compat-1.1.4.tgz#fc005c72849b7ed364de20a0f64ff58ebdc2009a"
 
-react-native-animatable@^1.1.0:
-  version "1.3.0"
-  resolved "http://registry.npm.taobao.org/react-native-animatable/download/react-native-animatable-1.3.0.tgz#b5c3940fc758cfd9b2fe54613a457c4b6962b46e"
-  dependencies:
-    prop-types "^15.5.10"
-
-react-native-blur@^3.1.1:
-  version "3.2.2"
-  resolved "http://registry.npm.taobao.org/react-native-blur/download/react-native-blur-3.2.2.tgz#5bfb50638d148982c9560436554ed01d77d6d07d"
-  dependencies:
-    prop-types "^15.5.10"
-
 react-native-camera-roll-picker@~1.2.0:
   version "1.2.3"
   resolved "http://registry.npm.taobao.org/react-native-camera-roll-picker/download/react-native-camera-roll-picker-1.2.3.tgz#b117fd3a2b9012dcccee1261a9bc427226b8d6d2"
@@ -4797,10 +4777,6 @@ react-native-drawer-layout@1.3.2, react-native-drawer-layout@~1.3.0:
   resolved "http://registry.npm.taobao.org/react-native-drawer-layout/download/react-native-drawer-layout-1.3.2.tgz#b9740d7663a1dc4f88a61b9c6d93d2d948ea426e"
   dependencies:
     react-native-dismiss-keyboard "1.0.0"
-
-react-native-interactable@latest:
-  version "0.1.10"
-  resolved "http://registry.npm.taobao.org/react-native-interactable/download/react-native-interactable-0.1.10.tgz#65b9a68f6a84ba1c0e2ad5478b1f22ffb29c0526"
 
 react-native-menu@~0.21.0:
   version "0.21.0"
@@ -4849,10 +4825,6 @@ react-native-splash-screen@^3.1.0:
   version "3.1.0"
   resolved "http://registry.npm.taobao.org/react-native-splash-screen/download/react-native-splash-screen-3.1.0.tgz#9636f83d711dadded27167cdc3dc6aa98ec222ee"
 
-react-native-swRefresh@^1.2.3:
-  version "1.2.3"
-  resolved "http://registry.npm.taobao.org/react-native-swRefresh/download/react-native-swRefresh-1.2.3.tgz#84fa925cc13322812251c023f331dbfd5c03095a"
-
 react-native-swipeout@~2.1.1:
   version "2.1.5"
   resolved "http://registry.npm.taobao.org/react-native-swipeout/download/react-native-swipeout-2.1.5.tgz#eb3a7ac3cf9418441b84a3a6fa7aa64b701598a4"
@@ -4871,20 +4843,6 @@ react-native-tab-navigator@^0.3.4:
   resolved "https://codeload.github.com/react-navigation/react-native-tab-view/tar.gz/36ebd834d78b841fc19778c966465d02fd1213bb"
   dependencies:
     prop-types "^15.6.0"
-
-react-native-ui-lib@^3.3.143:
-  version "3.3.159"
-  resolved "http://registry.npm.taobao.org/react-native-ui-lib/download/react-native-ui-lib-3.3.159.tgz#2d83f1a999337d516182eb22d24c20f68db48940"
-  dependencies:
-    babel-plugin-transform-inline-environment-variables "^0.0.2"
-    hoist-non-react-statics "^2.3.0"
-    lodash "^4.0.0"
-    prop-types "^15.5.10"
-    react-native-animatable "^1.1.0"
-    react-native-blur "^3.1.1"
-    react-native-interactable latest
-    semver "^5.5.0"
-    url-parse "^1.2.0"
 
 react-native-vector-icons@^4.6.0:
   version "4.6.0"
@@ -5223,10 +5181,6 @@ require-directory@^2.1.1:
 require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/require-main-filename/download/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
-
-requires-port@^1.0.0:
-  version "1.0.0"
-  resolved "http://registry.npm.taobao.org/requires-port/download/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
 
 resolve-cwd@^2.0.0:
   version "2.0.0"
@@ -5951,13 +5905,6 @@ unset-value@^1.0.0:
 urix@^0.1.0:
   version "0.1.0"
   resolved "http://registry.npm.taobao.org/urix/download/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
-
-url-parse@^1.2.0:
-  version "1.4.1"
-  resolved "http://registry.npm.taobao.org/url-parse/download/url-parse-1.4.1.tgz#4dec9dad3dc8585f862fed461d2e19bbf623df30"
-  dependencies:
-    querystringify "^2.0.0"
-    requires-port "^1.0.0"
 
 use@^3.1.0:
   version "3.1.1"
