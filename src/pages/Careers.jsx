@@ -75,7 +75,7 @@ class Careers extends Component {
       <List.Item multipleLine={true} wrap={true} arrow={'horizontal'} onClick={() => {
         this.props.changeCareer(item)
         Actions.push('careerContainer')
-      }}>
+      }} style={{ paddingTop: 10 }}>
         {item.jobTitle}
         <List.Item.Brief style={{ marginTop: 10, marginBottom: 10 }}>
           {

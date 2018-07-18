@@ -52,7 +52,7 @@ class CareerContainer extends Component {
                   }}
                 >
                   <Text>
-                    <Text style={{ color: '#4687ad', fontWeight: '700' }}>[{jobInfo.city}]</Text>
+                    <Text style={{ color: '#4687ad', fontWeight: '700' }}>{jobInfo.city ? `[${jobInfo.city}] ` : ''}</Text>
                     <Text>{jobInfo.company}·</Text>
                     <Text style={{ fontWeight: '700' }}>{jobInfo.title}</Text>
                   </Text>
