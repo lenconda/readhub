@@ -19,33 +19,20 @@ export default class WebContainer extends Component {
 
   render() {
 
-    const patchPostMessageFunction=function(){
-      var originalPostMessage=window.postMessage;
-      var patchedPostMessage=function(message,targetOrigin,transfer){
-        originalPostMessage(message,targetOrigin,transfer);
-      };
-      patchedPostMessage.toString=function(){
-        return String(Object.hasOwnProperty).replace('hasOwnProperty','postMessage');
-      };
-      window.postMessage=patchedPostMessage;
-    };
-
-    const patchPostMessageJsCode = '(' + String(patchPostMessageFunction) + ')();\nwindow.postMessage(document.title);'
-
     return (
       <View style={{ flex: 1 }}>
-        <RNADWebview
+        <WebView
           ref={(webview) => this.webview = webview}
           source={{ uri: this.props.url }}
-          initialJavaScript={patchPostMessageJsCode}
           onError={() => {Toast.offline('网页加载失败', 1)}}
           onLoadStart={() => {Toast.loading('加载中...')}}
           onLoad={() => {Toast.hide()}}
-          onMessage={e => {
-            console.log('get message')
-            Actions.refresh({title: e.nativeEvent.data})
+          javaScriptEnabled={true}
+          // allowFileAccessFromFileURLs={true}
+          onNavigationStateChange={(navState) => {
+            console.log(navState.title)
+            Actions.refresh({ title: navState.title })
           }}
-          allowFileAccessFromFileURLs={true}
         />
       </View>
     )

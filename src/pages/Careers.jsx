@@ -86,8 +86,8 @@ class Careers extends Component {
             })
           }
         </List.Item.Brief>
-        <List.Item.Brief style={{ marginTop: 10, color: '#333' }}>
-          <Text>
+        <List.Item.Brief>
+          <Text style={{ marginTop: 10, color: '#4867ad' }}>
             <Icon name={'map'} />
             &nbsp;{
               Object.keys(item.cities).map((city, index) => {
@@ -96,11 +96,11 @@ class Careers extends Component {
             }
           </Text>
         </List.Item.Brief>
-        <List.Item.Brief style={{ color: '#333' }}>
-          <Text><Icon name={'money'} />&nbsp;{utils.convertJobSalary(item.salaryLower, item.salaryUpper)}</Text>
+        <List.Item.Brief>
+          <Text style={{ color: '#d65949' }}><Icon name={'money'} />&nbsp;{utils.convertJobSalary(item.salaryLower, item.salaryUpper)}</Text>
         </List.Item.Brief>
-        <List.Item.Brief style={{ color: '#333' }}>
-          <Text><Icon name={'briefcase'} />&nbsp;{utils.convertJobExperience(item.experienceLower, item.experienceUpper)}</Text>
+        <List.Item.Brief>
+          <Text style={{ color: '#666' }}><Icon name={'briefcase'} />&nbsp;{utils.convertJobExperience(item.experienceLower, item.experienceUpper)}</Text>
         </List.Item.Brief>
       </List.Item>
     </List>

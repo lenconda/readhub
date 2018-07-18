@@ -69,7 +69,7 @@ class TopicContainer extends Component {
           <Text style={styles.timelineTitle}>事件追踪</Text>
           <List>
             {
-              !detail.timeline ? '' :
+              !detail.timeline ? <List.Item><List.Item.Brief>暂无事件追踪</List.Item.Brief></List.Item> :
               detail.timeline.topics.map((topic, index) => {
                 let dateObj = utils.getTimelineDate(topic.createdAt)
                 return (
@@ -79,7 +79,7 @@ class TopicContainer extends Component {
                       Actions.refresh()
                     })
                   }}>
-                    <Text>{topic.title}</Text>
+                    <Text style={{ color: '#333' }}>{topic.title}</Text>
                     <List.Item.Brief>
                       <Text style={{ fontSize: 12 }}>{`${dateObj.month}-${dateObj.date}${dateObj.year === dateObj.curYear ? '' : `, ${dateObj.year}`}`}</Text>
                     </List.Item.Brief>
