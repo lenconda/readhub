@@ -1,16 +1,11 @@
 import React, { Component } from 'react'
 import { ScrollView, View, Text, StyleSheet } from 'react-native'
-import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
 import { List } from 'antd-mobile'
 
 import utils from '../utils'
 
-const mapStateToProps = state => ({
-  jobDetail: state.careers
-})
-
-class CareerContainer extends Component {
+export default class CareerContainer extends Component {
 
   constructor(props) {
     super(props)
@@ -25,7 +20,7 @@ class CareerContainer extends Component {
 
   render() {
 
-    let job = this.props.jobDetail
+    let job = this.props
     console.log(job.cities)
 
     return (
@@ -102,5 +97,3 @@ const styles = StyleSheet.create({
   },
 
 })
-
-export default connect(mapStateToProps)(CareerContainer)

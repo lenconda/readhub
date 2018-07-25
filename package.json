@@ -1,6 +1,6 @@
 {
-  "name": "BRouterDemo",
-  "version": "0.1.0",
+  "name": "ReadHub",
+  "version": "1.1.0",
   "private": true,
   "devDependencies": {
     "babel-plugin-import": "^1.8.0",

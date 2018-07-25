@@ -4,28 +4,11 @@ import RefreshListView, { RefreshState } from '../components/RefreshListView'
 import { Toast, List } from 'antd-mobile'
 import { Icon } from 'react-native-vector-icons/FontAwesome'
 import { Actions } from 'react-native-router-flux'
-import { connect } from 'react-redux'
 
-import { change_topic } from '../redux/actions'
 import api from '../api'
 import utils from '../utils'
 
-const mapStateToProps = state => {
-  return {
-    topic: state.topic
-  }
-}
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    changeTopic: (topic) => {
-      console.log('dispatching topic to store...')
-      dispatch(change_topic(topic))
-    }
-  }
-}
-
-class Topics extends Component {
+export default class Topics extends Component {
 
   constructor(props) {
     super(props)
@@ -88,8 +71,7 @@ class Topics extends Component {
         onClick = {() => {
           Toast.loading('加载中...', 0)
           api.get(`/topic/${item.id}`).then(res => {
-            this.props.changeTopic(res.data)
-            Actions.push('topicContainer')
+            Actions.push('topicContainer', res)
             Toast.hide()
           }).catch(error => {Toast.fail('加载失败', 1)})
         }}
@@ -140,5 +122,3 @@ const styles = StyleSheet.create({
   },
 
 })
-
-export default connect(mapStateToProps, mapDispatchToProps)(Topics)

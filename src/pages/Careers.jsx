@@ -3,30 +3,12 @@ import { View, Text, StyleSheet } from 'react-native'
 import RefreshListView, { RefreshState } from '../components/RefreshListView'
 import { List, Toast } from 'antd-mobile'
 import { Actions } from 'react-native-router-flux'
-import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-import { change_career } from '../redux/actions'
 import api from '../api'
 import utils from '../utils'
 
-
-const mapStateToProps = state => {
-  return {
-    career: state.career
-  }
-}
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    changeCareer: (career) => {
-      console.log('dispatching career to store...')
-      dispatch(change_career(career))
-    }
-  }
-}
-
-class Careers extends Component {
+export default class Careers extends Component {
 
   constructor(props) {
     super(props)
@@ -73,8 +55,7 @@ class Careers extends Component {
   careerItem = ({ item }) => {
     return <List style={styles.jobList}>
       <List.Item multipleLine={true} wrap={true} arrow={'horizontal'} onClick={() => {
-        this.props.changeCareer(item)
-        Actions.push('careerContainer')
+        Actions.push('careerContainer', item)
       }} style={{ paddingTop: 10 }}>
         {item.jobTitle}
         <List.Item.Brief style={{ marginTop: 10, marginBottom: 10 }}>
@@ -138,5 +119,3 @@ const styles = StyleSheet.create({
   },
 
 })
-
-export default connect(mapStateToProps, mapDispatchToProps)(Careers)
