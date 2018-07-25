@@ -16,9 +16,6 @@ export default class AppRouter extends Component {
         navigationBarStyle={styles.navigationBar}
         titleStyle={styles.navigationTitle}
         backButtonTintColor={'#4867ad'}
-        // backButtonTextStyle={styles.backButton}
-        // renderBackButton={() => <Icon name={'chevron-left'} color={'#4867ad'} size={16} />}
-        // onBack={Actions.pop()}
         leftButtonStyle={styles.backButton}
       >
         <Scene key={'root'}>
