@@ -40,6 +40,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderBottomWidth: 0,
     shadowColor: 'transparent',
+    elevation: 0,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
   },
 
   navigationTitle: {
